@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <title>Assignment 02</title>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+
+<body>
+
+
+  <script>
+    const movies = [
+      "A Good Enough Day",
+      "A Nashville Wish",
+      "About Dry Grasses",
+      "Adam the First",
+      "Air Force One Down",
+      "Altered Reality",
+      "Amélie",
+      "Argylle",
+      "Article 370",
+      "Ashes",
+      "Bleeding Love",
+      "Bob Marley: One Love",
+      "Bosco",
+      "Box: Metaphor",
+      "Bring Him to Me",
+      "Calamity Jane",
+      "Cellphone",
+      "Code 8: Part II",
+      "Colleen Hoover’s It Ends With Us",
+      "DarkGame",
+      "Daytime Nightmare",
+      "Demise",
+      "Double Blind",
+      "Drift",
+      "Drive-Away Dolls",
+      "Earworm",
+      "ElemenTory",
+      "Fitting In",
+      "Float",
+      "Fortunes of War",
+      "Ghostwritten",
+      "Gloria Gaynor: I Will Survive",
+      "God & Country: The Rise of Christian Nationalism",
+      "Gods of the Deep",
+      "Golden Years",
+      "Here for Blood",
+      "Here",
+      "History of Evil",
+      "Housekeeping for Beginners",
+      "I Love You More",
+      "Io Capitano",
+      "Jungle Bunch: Operation Meltdown",
+      "Land of Bad",
+      "Lights Out",
+      "Lisa Frankenstein",
+      "Lola",
+      "Love ... Reconsidered",
+      "Lovely, Dark, and Deep",
+      "Lover, Stalker, Killer",
+      "Madame Web",
+      "Marmalade",
+      "Mea Culpa",
+      "Midnight Peep Show",
+      "Molli and Max in the Future",
+      "Monolith",
+      "No Way Up",
+      "Ordinary Angels",
+      "Orion and the Dark",
+      "Out of Darkness",
+      "Paprika",
+      "Parallel",
+      "Players",
+      "Popular Theory",
+      "Red Right Hand",
+      "Sacred Soil: The Piney Woods School Story",
+      "Scrambled",
+      "Skin Deep",
+      "Snoopy Presents: Welcome Home, Franklin",
+      "Stopmotion",
+      "Suncoast",
+      "The Bad Shepherd",
+      "The Chosen Season 4",
+      "The Heartbreak Agency",
+      "The Monk and the Gun",
+      "The Promised Land",
+      "The Stolen Valley",
+      "The Taste of Things",
+      "The Teachers' Lounge",
+      "The Tiger's Apprentice",
+      "The Walking Dead: The Ones Who Live",
+      "They Shot the Piano Player",
+      "This Is Me...Now",
+      "Through My Window: Looking at You",
+      "Turning Red",
+      "Upgraded",
+      "Weak Layers",
+      "What About Love",
+      "Willie and Me",
+      "Winnie-the-Pooh: Blood and Honey 2",
+    ]
+
+
+    // Right now these are using filter to match EVERY movie (because they exist in the array, they are 'true')
+
+    // You will need to using different string tools - inlcudes, startsWith, endsWith - to filter only the movies your friends will want to watch
+
+
+    // Friend 1 will only watch moves with one word titles.
+    const friend1 = movies.filter(movie => movie.includes(" ") === false)
+    console.log(friend1)
+
+    // Friend 2 will only watch movies that start with the letter "W". 
+    const friend2 = movies.filter(movie => movie.startsWith("W"))
+    console.log(friend2)
+
+
+    // Friend 3 only will watch movies with the word "Love" or "Blood" in the title.
+    const friend3 = movies.filter(movie => movie.includes("Love") || movie.includes("Blood"))
+    console.log(friend3)
+
+
+    // Friend 4 flatly refuses to watch any movie where the title starts with the word "The" or "A".
+    const friend4 = movies.filter(movie => movie.startsWith("The") === false && movie.startsWith("A") === false)
+    console.log(friend4)
+
+
+
+
+  </script>
+
+
+</body>
+
+</html>
