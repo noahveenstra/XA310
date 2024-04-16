@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+	<title>XA 310 Assignment 05</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+
+
+	<h1>XA 310 Assignment 05</h1>
+
+
+	<p>Put your assigned algorithm into the JavaScript code below.</p>
+
+
+	<script>
+
+
+		// create the test arrays - these call the makeArray() function at the end of
+		// this script which creates a randomized array of numbers 
+
+
+		// smallArray = 100 random numbers
+		const smallArray = makeArray(100)
+
+		// mediumArray = 1000 random numbers
+		const mediumArray = makeArray(1000)
+
+		// largeArray = 10000 random numbers
+		const largeArray = makeArray(10000)
+
+
+		// your sorting algorithm goes here
+
+		// it must accept an array as an argument and return the array sorted numerically
+
+		// please change the name to the actual name of the algorithm
+
+		function bucketSort(inputArr) {
+			// set up the variable for the returned array
+			const outputArr = [];
+
+			// Find min and max values in the array
+			let min = inputArr[0];
+			let max = inputArr[0];
+			for (let i = 1; i < inputArr.length; i++) {
+				if (inputArr[i] < min) min = inputArr[i];
+				if (inputArr[i] > max) max = inputArr[i];
+			}
+
+			// Create buckets
+			const bucketSize = 10; // You can adjust this bucket size as needed
+			const bucketCount = Math.floor((max - min) / bucketSize) + 1;
+			const buckets = new Array(bucketCount);
+			for (let i = 0; i < bucketCount; i++) {
+				buckets[i] = [];
+			}
+
+			// Distribute elements into buckets
+			for (let i = 0; i < inputArr.length; i++) {
+				const bucketIndex = Math.floor((inputArr[i] - min) / bucketSize);
+				buckets[bucketIndex].push(inputArr[i]);
+			}
+
+			// Sort each bucket and concatenate them
+			for (let i = 0; i < bucketCount; i++) {
+				buckets[i].sort((a, b) => a - b);
+				outputArr.push(...buckets[i]);
+			}
+
+			return outputArr;
+		}
+
+
+
+
+		// call your function once for each of the arrays and time how
+		// long each takes 
+		// remember to change the name to match the function name
+		// you used above
+
+		// console.time() uses a label to keep track of what you're timing
+		console.time("small bucketSort")
+
+		// call your function with the small array
+		console.log(bucketSort(smallArray))
+
+		// this ends the timer with the matching label from above
+		console.timeEnd('small bucketSort')
+
+
+		// same thing as above with the 1000 item array
+		console.time("medium bucketSort")
+		console.log(bucketSort(mediumArray))
+		console.timeEnd('medium bucketSort')
+
+		// same thing as above with the 10000 item array
+		console.time("large bucketSort")
+		console.log(bucketSort(largeArray))
+		console.timeEnd('large bucketSort')
+
+
+
+
+
+
+		// You don't need to touch this; this is the function that gets called above
+		// to generate the arrays of randomized numbers
+		function makeArray(number) {
+			let array = []
+			for (let i = 0; i < number; ++i) {
+				array[i] = i;
+			}
+
+			let tmp, current, top = array.length;
+
+			if (top) {
+				while (--top) {
+					current = Math.floor(Math.random() * (top + 1));
+					tmp = array[current];
+					array[current] = array[top];
+					array[top] = tmp;
+				}
+			}
+			return array;
+		}
+
+
+
+
+	</script>
+
+</body>
+
+</html>
