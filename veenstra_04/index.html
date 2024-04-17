@@ -2,59 +2,75 @@
 
 <html lang="en">
 
-	<head>
+<head>
 
-		<title>Assignment 04 - Recursion</title>
+	<title>Assignment 04 - Recursion</title>
 
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	</head>
+</head>
 
-	<body>
+<body>
 
-		<h1>Recursion</h1>
+	<h1>Recursion</h1>
 
-		<p>Gather user input to calculate the sequence that number of times...</p>
+	<p>Gather user input to calculate the sequence that number of times...</p>
 
 
-<script>
+	<script>
 
-	// non recursive function
-	function fibonacci(n) {
+		// non recursive function
+		function fibonacci(n) {
 
-		if (n <= 0) {
-			return [];
-		}
-
-		else if (n === 1) {
-			return [0];
-		} 
-		else if (n === 2) {
-			return [0, 1];
-		} 
-		else {
-			let sequence = [0, 1];
-			for (let i = 2; i < n; i++) {
-				sequence.push(sequence[i - 1] + sequence[i - 2]);
+			if (n <= 0) {
+				return [];
 			}
-			return sequence;
+
+			else if (n === 1) {
+				return [0];
+			}
+			else if (n === 2) {
+				return [0, 1];
+			}
+			else {
+				let sequence = [0, 1];
+				for (let i = 2; i < n; i++) {
+					sequence.push(sequence[i - 1] + sequence[i - 2]);
+				}
+				return sequence;
+			}
 		}
-	}
 
 
-	// print it for five numbers
-	console.log(fibonacci(5));
+		// print it for five numbers
+		console.log(fibonacci(5));
 
 
-	// write your recursive version here...
-	function fibonacciRecursive() {
-	}
+		// write your recursive version here...
+		function fibonacciRecursive(n) {
+			if (n <= 0) {
+				return [];
+			} else if (n === 1) {
+				return [0];
+			} else if (n === 2) {
+				return [0, 1];
+			} else {
+				let sequence = fibonacciRecursive(n - 1);
+				sequence.push(sequence[sequence.length - 1] + sequence[sequence.length - 2]);
+				return sequence;
+			}
+		}
+
+		// Get user input
+		let num = parseInt(prompt("Enter a number:"));
+
+		// Print the fibonacci sequence
+		console.log(fibonacciRecursive(num));
 
 
-</script>
+	</script>
 
-	</body>
+</body>
+
 </html>
-
-
